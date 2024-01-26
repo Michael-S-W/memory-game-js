@@ -1,17 +1,19 @@
 * {
   box-sizing: border-box;
   caret-color: transparent;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Single Day", cursive, Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 20px;
+  font-size: 3em;
   background-color: #eee;
-  margin: auto;
-  height: 100%;
+  background-image: url(./images/background.jpg);
+  background-size: cover;
 }
 .splash-screen {
   position: absolute;
@@ -29,10 +31,10 @@ body {
 .splash-screen p {
   padding: 0;
   margin: 0;
-  font-size: 45px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2em;
   font-weight: bold;
-  color: red;
+  color: rgb(255, 23, 23);
+  text-shadow: 0 0 15px rgb(58, 58, 58);
   text-align: center;
   position: absolute;
   top: 50%;
@@ -44,7 +46,7 @@ body {
   background-color: orange;
   padding: 15px 30px;
   border: none;
-  font-size: 20px;
+  font-size: 0.75em;
   font-weight: bold;
   color: white;
   border-radius: 5px;
@@ -53,23 +55,25 @@ body {
   cursor: pointer;
 }
 .splash-screen button:active {
-  box-shadow: none;
+  box-shadow: 0px 0px 5px orange, 0px 0px 10px rgb(255, 186, 57),
+    0px 0px 15px rgb(255, 255, 255);
 }
 .main-container {
+  position: relative;
   width: 100%;
-  margin: 10px;
 }
 
 .header {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 2px solid #222;
+  padding: 15px;
+  border-bottom: 7px solid #1d181d;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(42, 42, 42);
 }
 .header .name span {
   color: rgb(50, 50, 200);
@@ -82,9 +86,7 @@ body {
   position: relative;
   perspective: 1000px;
   display: grid;
-  grid-template-columns: repeat(5, 20%);
-  gap: 3px;
-  padding: 3px;
+  padding: 5px;
 }
 
 .game-container .block {
@@ -92,7 +94,6 @@ body {
   transition: transform 0.5s;
   transform-style: preserve-3d;
   cursor: pointer;
-  height: 150px;
   border-radius: 20px;
   z-index: 200;
 }
@@ -118,13 +119,13 @@ body {
   border-radius: 20px;
   content: "!";
   color: #fff;
-  font-size: 5em;
+  font-size: 3em;
   font-weight: bold;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-shadow: 5px 5px 10px #2e1c1c;
+  text-shadow: 0px 0px 10px #2e1c1c;
 }
 
 .game-container .block .back,
@@ -135,17 +136,29 @@ body {
   height: 100%;
   text-align: center;
   border: 5px solid #3f2222;
-  box-shadow: 5px 5px 10px #2e1c1c;
+  box-shadow: 0px 5px 10px #2e1c1c;
 }
 .game-container .block .face {
   border-radius: 20px;
   transform: rotateY(180deg);
   background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-container .block .face img {
   border-radius: 20px;
   width: 60%;
   padding: 5px;
-  height: 100%;
+}
+@media screen and (min-width: 900px) {
+  .game-container {
+    width: 780px;
+    height: 625px;
+    grid-template-columns: repeat(5, 150px);
+    grid-template-rows: repeat(4, 150px);
+    gap: 5px;
+    padding: 5px;
+  }
 }
