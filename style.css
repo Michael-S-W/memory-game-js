@@ -152,7 +152,7 @@ body {
   width: 60%;
   padding: 5px;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 901px) {
   .game-container {
     width: 780px;
     height: 625px;
@@ -160,5 +160,31 @@ body {
     grid-template-rows: repeat(4, 150px);
     gap: 5px;
     padding: 5px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  .game-container {
+    width: 480px;
+    height: 385px;
+    grid-template-columns: repeat(5, 90px);
+    grid-template-rows: repeat(4, 90px);
+    gap: 5px;
+    padding: 5px;
+  }
+  .game-container .block .back::before {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 480px) {
+  .game-container {
+    width: 385px;
+    height: 480px;
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows: repeat(5, 90px);
+    gap: 5px;
+    padding: 5px;
+  }
+  .game-container .block .back::before {
+    font-size: 1em;
   }
 }
