@@ -78,8 +78,8 @@ body {
   color: rgb(200, 50, 50);
 }
 .game-container {
+  margin: 10px auto;
   position: relative;
-  border: 2px solid #222;
   perspective: 1000px;
   display: grid;
   grid-template-columns: repeat(5, 20%);
@@ -95,7 +95,6 @@ body {
   height: 150px;
   border-radius: 20px;
   z-index: 200;
-  /* border: 3px solid white; */
 }
 .game-container .block.flipped,
 .game-container .block.correct {
@@ -113,7 +112,6 @@ body {
   background-color: #513232;
   position: relative;
   border-radius: 20px;
-  /* box-shadow: 5px 5px 10px #2e1c1c; */
 }
 
 .game-container .block .back::before {
@@ -136,7 +134,7 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
-  border: 5px solid 5px solid #2196f3;
+  border: 5px solid #3f2222;
   box-shadow: 5px 5px 10px #2e1c1c;
 }
 .game-container .block .face {
