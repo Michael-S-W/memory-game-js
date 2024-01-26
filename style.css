@@ -14,6 +14,7 @@ body {
   background-color: #eee;
   background-image: url(./images/background.jpg);
   background-size: cover;
+  background-blend-mode: soft-light;
 }
 .splash-screen {
   position: absolute;
@@ -72,6 +73,7 @@ body {
   align-items: center;
   flex-direction: row;
   font-weight: bold;
+  font-size: 1em;
   color: rgb(255, 255, 255);
   text-shadow: 0px 0px 5px rgb(42, 42, 42);
 }
@@ -174,6 +176,9 @@ body {
   .game-container .block .back::before {
     font-size: 2em;
   }
+  .header {
+    font-size: 1em;
+  }
 }
 @media screen and (max-width: 480px) {
   .game-container {
@@ -186,5 +191,8 @@ body {
   }
   .game-container .block .back::before {
     font-size: 1em;
+  }
+  .header {
+    font-size: 0.7em;
   }
 }
