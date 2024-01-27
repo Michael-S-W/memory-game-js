@@ -21,7 +21,7 @@ for (let i = 0; i < 20; i++) {
   let randomIndex = Math.floor(Math.random() * 20);
   trash.includes(randomIndex) ? i-- : trash.push(randomIndex);
 }
-console.log(trash);
+// console.log(trash);
 /**
  *    BUILD SHUFFLED CARDS BLOCKS IN GAME CONTAINER
  */
@@ -64,24 +64,29 @@ let blocksArr = document.querySelectorAll(".block");
 let checkingArr = [];
 blocksArr.forEach((element) => {
   element.addEventListener("click", (e) => {
-    console.log(e.target);
+    // console.log(e.target);
+    let flip = new Audio("./flip.mp3");
+    flip.play();
     e.target.parentElement.classList.add("flipped");
     checkingArr.push(e.target.parentElement);
     checking(checkingArr);
   });
 });
+
 /**
  *    GAME LOGIC
  */
 let wrongTries = document.querySelector(".wrong-tries span");
 function checking(x) {
   if (x.length === 2) {
-    console.log(x.length);
-    console.log(x);
+    // console.log(x.length);
+    // console.log(x);
     blocksArr.forEach((e) => {
       e.parentElement.classList.add("forbid");
     });
     if (x[0].dataset.technology === x[1].dataset.technology) {
+      let correctAnswer = new Audio("./correct.mp3");
+      correctAnswer.play();
       setTimeout(() => {
         x.forEach((y) => {
           y.classList.add("correct");
@@ -105,6 +110,8 @@ function checking(x) {
             document
               .querySelector(".game-container")
               .classList.remove("forbid");
+            let wrongAnswer = new Audio("./wrong.mp3");
+            wrongAnswer.play();
             checkingArr = [];
           });
         }, 1000);
@@ -114,6 +121,8 @@ function checking(x) {
 }
 
 function winMessage() {
+  let winGame = new Audio("./win.mp3");
+  winGame.play();
   let splashScreen = document.querySelector(".splash-screen");
   let correctBlocks = document.querySelectorAll(
     ".game-container .flipped.correct"
@@ -130,6 +139,8 @@ function winMessage() {
 }
 
 function loseMessage() {
+  let lostGame = new Audio("./lost.mp3");
+  lostGame.play();
   setTimeout(() => {
     let splashScreen = document.querySelector(".splash-screen");
     let messageP = document.createElement("p");
