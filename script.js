@@ -85,12 +85,14 @@ function checking(x) {
       setTimeout(() => {
         x.forEach((y) => {
           y.classList.add("correct");
-          y.classList.remove("forbid");
+          // y.classList.remove("forbid");
           document.querySelector(".game-container").classList.remove("forbid");
           checkingArr = [];
         });
       }, 1000);
-      winMessage();
+      if (document.querySelectorAll(".correct").length === 20) {
+        winMessage();
+      }
     } else {
       wrongTries.innerHTML = parseInt(wrongTries.innerHTML) - 1;
       if (parseInt(wrongTries.innerHTML) === 0) {
@@ -128,10 +130,12 @@ function winMessage() {
 }
 
 function loseMessage() {
-  let splashScreen = document.querySelector(".splash-screen");
-  let messageP = document.createElement("p");
-  messageP.innerHTML = `Sorry!!<br>You Lost`;
-  splashScreen.prepend(messageP);
-  document.querySelector(".splash-screen button").style.display = "none";
-  splashScreen.style.display = "block";
+  setTimeout(() => {
+    let splashScreen = document.querySelector(".splash-screen");
+    let messageP = document.createElement("p");
+    messageP.innerHTML = `Sorry!!<br>You Lost`;
+    splashScreen.prepend(messageP);
+    document.querySelector(".splash-screen button").style.display = "none";
+    splashScreen.style.display = "block";
+  }, 1000);
 }
