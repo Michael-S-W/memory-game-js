@@ -80,6 +80,8 @@ body {
   perspective: 1000px;
   display: grid;
   justify-content: center;
+  width: 90vw;
+  height: 75vh;
 }
 
 .game-container .block {
@@ -147,15 +149,15 @@ body {
 
 @media screen and (min-width: 901px) {
   .game-container {
-    grid-template-columns: repeat(5, 130px);
-    grid-template-rows: repeat(4, 130px);
+    grid-template-columns: repeat(5, calc(80%/5));
+    grid-template-rows: repeat(4, calc(80%/4));
     gap: 5px;
   }
 }
 @media screen and (min-width: 600px) and (max-width: 900px) {
   .game-container {
-    grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(5, calc(80%/5));
+    grid-template-rows: repeat(4, calc(80%/4));
     gap: 5px;
   }
   .game-container .block .back::before {
@@ -167,8 +169,8 @@ body {
 }
 @media screen and (max-width: 600px) {
   .game-container {
-    grid-template-columns: repeat(4, 90px);
-    grid-template-rows: repeat(5, 90px);
+    grid-template-columns: repeat(4, calc(80%/4));
+    grid-template-rows: repeat(5, calc(80%/5));
     gap: 5px;
   }
   .game-container .block .back::before {
