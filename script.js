@@ -61,7 +61,7 @@ for (let j = 0; j < trash.length; j++) {
  *    ADDING EVENT ARRAY TO ALL BLOCKS
  */
 let blocksArr = document.querySelectorAll(".block");
-console.log(blocksArr);
+//console.log(blocksArr);
 let checkingArr = [];
 blocksArr.forEach((element) => {
   element.addEventListener("click", (e) => {
