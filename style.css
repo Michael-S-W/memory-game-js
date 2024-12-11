@@ -8,40 +8,25 @@
 body {
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 3em;
-  background-color: #eee;
+  align-items:flex-start;
+  font-size: 2.5em;
   background-image: url(./images/background.jpg);
+  background-color: #eee;
   background-size: cover;
   background-blend-mode: soft-light;
 }
+
 .splash-screen {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  margin: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(9, 20, 31, 0.9);
+  background-color: rgba(9, 20, 31, 0.8);
   z-index: 999;
 }
-.splash-screen p {
-  padding: 0;
-  margin: 0;
-  font-size: 2em;
-  font-weight: bold;
-  color: rgb(255, 23, 23);
-  text-shadow: 0 0 15px rgb(58, 58, 58);
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 .splash-screen button {
   z-index: 99999;
   background-color: orange;
@@ -50,32 +35,37 @@ body {
   font-size: 0.75em;
   font-weight: bold;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0px 0px 15px orange, 0px 0px 30px rgb(255, 186, 57),
     0px 0px 45px rgb(255, 255, 255);
   cursor: pointer;
 }
+
 .splash-screen button:active {
   box-shadow: 0px 0px 5px orange, 0px 0px 10px rgb(255, 186, 57),
     0px 0px 15px rgb(255, 255, 255);
 }
+
 .main-container {
   position: relative;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .header {
-  padding: 15px;
-  border-bottom: 7px solid #1d181d;
-  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  font-weight: bold;
-  font-size: 1em;
+  border-bottom: 7px solid #1d181d;
+  padding: 15px 50px;
+  font-weight: bolder;
   color: rgb(255, 255, 255);
-  text-shadow: 0px 0px 5px rgb(42, 42, 42);
+  text-shadow: 0px 0px 5px rgb(28, 28, 28); 
 }
 .header .name span {
   color: rgb(50, 50, 200);
@@ -84,16 +74,16 @@ body {
   color: rgb(200, 50, 50);
 }
 .game-container {
-  margin: 10px auto;
+  margin: 50px auto;
   position: relative;
   perspective: 1000px;
   display: grid;
-  padding: 5px;
+  justify-content: center;
 }
 
 .game-container .block {
   position: relative;
-  transition: transform 0.5s;
+  transition: transform 0.3s;
   transform-style: preserve-3d;
   cursor: pointer;
   border-radius: 20px;
@@ -101,12 +91,11 @@ body {
 }
 .game-container .block.flipped,
 .game-container .block.correct {
-  border-radius: 20px;
   transform: rotateY(180deg);
   pointer-events: none;
 }
+
 .game-container.forbid {
-  border-radius: 20px;
   pointer-events: none;
   transform: none;
 }
@@ -138,7 +127,7 @@ body {
   height: 100%;
   text-align: center;
   border: 5px solid #3f2222;
-  box-shadow: 0px 5px 10px #2e1c1c;
+  box-shadow: 0px 5px 10px #231616;
 }
 .game-container .block .face {
   border-radius: 20px;
@@ -154,24 +143,19 @@ body {
   width: 60%;
   padding: 5px;
 }
+
 @media screen and (min-width: 901px) {
   .game-container {
-    width: 780px;
-    height: 625px;
-    grid-template-columns: repeat(5, 150px);
-    grid-template-rows: repeat(4, 150px);
+    grid-template-columns: repeat(5, 130px);
+    grid-template-rows: repeat(4, 130px);
     gap: 5px;
-    padding: 5px;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 900px) {
+@media screen and (min-width: 600px) and (max-width: 900px) {
   .game-container {
-    width: 480px;
-    height: 385px;
-    grid-template-columns: repeat(5, 90px);
-    grid-template-rows: repeat(4, 90px);
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(4, 100px);
     gap: 5px;
-    padding: 5px;
   }
   .game-container .block .back::before {
     font-size: 2em;
@@ -180,17 +164,14 @@ body {
     font-size: 1em;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .game-container {
-    width: 385px;
-    height: 480px;
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: repeat(5, 90px);
     gap: 5px;
-    padding: 5px;
   }
   .game-container .block .back::before {
-    font-size: 1em;
+    font-size: 2em;
   }
   .header {
     font-size: 0.7em;
